@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponseRedirect, reverse
 import markdown2
 from . import util
 
@@ -20,4 +20,8 @@ def page(request, page):
                       "Title": page
                       })
         
+def search(request):
+    searche = request.GET.get("q","")
+    return HttpResponseRedirect(reverse("pages", kwargs={"page": searche}))
+
     
