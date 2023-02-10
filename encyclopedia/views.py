@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponseRedirect, reverse
+from django.shortcuts import render,redirect
 import markdown2
 from . import util
 
@@ -21,7 +21,13 @@ def page(request, page):
                       })
         
 def search(request):
-    searche = request.GET.get("q","")
-    return HttpResponseRedirect(reverse("pages", kwargs={"page": searche}))
+    search = request.GET.get("q","")
+    if util.get_entry(search) is not None:
+        return redirect(f"wiki/{search}")
+    else:
+        return render(request, "encyclopedia/not_found.html",{
+            "Title": search
+        })
+
 
     
