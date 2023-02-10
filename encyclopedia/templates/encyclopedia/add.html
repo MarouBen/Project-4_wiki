@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Add Page
+{% endblock %}
+
+{% block body%}
+    <h1>Adding a page?</h1>
+    <form method = "POST">
+        <div class="form-group">
+            <label for="TheTitle" style="margin-bottom:0px; margin-top:10px;"><h5>Title</h5></label>
+            <input type="email" class="form-control col-sm-2" id="TheTitle" name="T" placeholder="Example: Kotlin">
+            <small class="form-text text-muted">Write the title of your page here.</small>
+        </div>
+        <div class="form-group">
+            <label for="TheData" style="margin-bottom:0px;"><h5>Text</h5></label>
+            <textarea class="form-control col-sm-8" id="TheData" name="D" rows="4"></textarea>
+            <small class="form-text text-muted">Write the text in markdown format here.</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Add page</button>
+    <form>
+{% endblock %}

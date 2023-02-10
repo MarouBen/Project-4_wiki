@@ -39,6 +39,10 @@ def search(request):
             "Title": search
             })
 
+def Add(request):
+    return render(request, "encyclopedia/add.html")
+    
+
             
             
 
