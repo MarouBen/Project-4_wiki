@@ -25,9 +25,22 @@ def search(request):
     if util.get_entry(search) is not None:
         return redirect(f"wiki/{search}")
     else:
-        return render(request, "encyclopedia/not_found.html",{
+        pages = util.list_entries()
+        searching = []
+        for page in pages:
+            if search.upper() in page.upper():
+                searching.append(page)
+        if searching.__len__() != 0:
+            return render(request, "encyclopedia/search.html",{
+                "pages": searching
+            })
+        else:
+            return render(request, "encyclopedia/not_found.html",{
             "Title": search
-        })
+            })
+
+            
+            
 
 
     
