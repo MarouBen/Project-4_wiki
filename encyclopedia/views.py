@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,reverse
 import markdown2
 from . import util
 
@@ -40,7 +40,22 @@ def search(request):
             })
 
 def Add(request):
-    return render(request, "encyclopedia/add.html")
+    if request.method == "POST":
+        pages = util.list_entries()
+        Title = request.POST.get("T","")
+        Data = request.POST.get("D","")
+        for page in pages:
+            if Title.upper() == page.upper():
+                return render(request, "encyclopedia/add.html",{
+                "Existing":1
+                })
+        util.save_entry(Title,Data)
+        return redirect(reverse("index"))
+            
+    else:
+        return render(request, "encyclopedia/add.html",{
+            "Existing":0
+        })
     
 
             
