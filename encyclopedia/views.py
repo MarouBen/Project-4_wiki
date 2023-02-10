@@ -56,6 +56,12 @@ def Add(request):
         return render(request, "encyclopedia/add.html",{
             "Existing":0
         })
+        
+def Edit(request):
+    if request.method == "POST":
+        
+    else:
+        return render(request, "encyclopedia/edit.html")
     
 
             

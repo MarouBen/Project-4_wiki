@@ -1,30 +1,24 @@
 {% extends "encyclopedia/layout.html" %}
 
 {% block title %}
-    Add Page
+    Edit Page
 {% endblock %}
 
 {% block body%}
 
-    <h1>Adding a page?</h1>
-    <form  method="POST" action="{% url "Add" %}">
+    <h1>Editing a page?</h1>
+    <form  method="POST" action="{% url "Edit" %}">
         {% csrf_token %}
         <div class="form-group">
             <label for="TheTitle" style="margin-bottom:0px; margin-top:10px;"><h5>Title</h5></label>
-            <input class="form-control col-sm-2" id="TheTitle" name="T" placeholder="Example: Kotlin">
+            <input class="form-control col-sm-2" id="TheTitle" name="T" placeholder="Example: Kotlin" value="{{ title }}">
             <small class="form-text text-muted">Write the title of your page here.</small>
         </div>
         <div class="form-group">
             <label for="TheData" style="margin-bottom:0px;"><h5>Text</h5></label>
-            <textarea class="form-control col-sm-8" id="TheData" name="D" rows="4"></textarea>
+            <textarea class="form-control col-sm-8" id="TheData" name="D" rows="4">{{ data }}</textarea>
             <small class="form-text text-muted">Write the text in markdown format here.</small>
         </div>
-        <button type="submit"  class="btn btn-primary">Add page</button>
+        <button type="submit"  class="btn btn-primary">Save Changes</button>
     </form>
-    {% if  Existing  == 1 %}
-        <div class="alert alert-danger col-sm-8" role="alert" style="margin-top:10px;">
-            This page title already exist!
-        </div>
-    {% endif %}
-    
 {% endblock %}

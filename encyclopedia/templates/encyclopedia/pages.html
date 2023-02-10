@@ -6,4 +6,8 @@
 
 {% block body %}
     {{ data | safe}}
+    <form action="{% url "Edit" %}" >
+        <button type="submit" class="btn btn-secondary">Edit page</button>
+    </form>
+
 {% endblock %}
