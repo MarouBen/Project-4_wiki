@@ -52,7 +52,7 @@ def Add(request):
                 "Existing":1
                 })
         util.save_entry(Title,Data)
-        return redirect(reverse("index"))
+        return redirect(reverse("pages",args=[Title]))
             
     else:
         return render(request, "encyclopedia/add.html",{
@@ -64,7 +64,7 @@ def Edit(request, title):
         Title = request.POST.get("T","")
         Data = request.POST.get("D","")
         util.save_entry(Title,Data)
-        return redirect(reverse("index"))
+        return redirect(reverse("pages",args=[Title]))
     else:
         title = title
         data = util.get_entry(title)
