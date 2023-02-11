@@ -7,7 +7,7 @@
 {% block body%}
 
     <h1>Editing a page?</h1>
-    <form  method="POST" action="{% url "Edit" %}">
+    <form  method="POST" action="{% url "Edit" title=title %}">
         {% csrf_token %}
         <div class="form-group">
             <label for="TheTitle" style="margin-bottom:0px; margin-top:10px;"><h5>Title</h5></label>

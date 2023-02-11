@@ -6,8 +6,7 @@
 
 {% block body %}
     {{ data | safe}}
-    <form action="{% url "Edit" %}" >
-        <button type="submit" class="btn btn-secondary">Edit page</button>
-    </form>
+
+    <a href="/wiki/{{ Title }}/Edit"><button type="submit" class="btn btn-secondary">Edit page</button></a>
 
 {% endblock %}

@@ -57,15 +57,16 @@ def Add(request):
             "Existing":0
         })
         
-def Edit(request):
+def Edit(request, title):
     if request.method == "POST":
-        
+        Title = request.POST.get("T","")
+        Data = request.POST.get("D","")
+        util.save_entry(Title,Data)
+        return redirect(reverse("index"))
     else:
-        return render(request, "encyclopedia/edit.html")
-    
-
-            
-            
-
-
-    
+        title = title
+        data = util.get_entry(title)
+        return render(request, "encyclopedia/edit.html",{
+            "title": title,
+            "data": data
+        }) 
