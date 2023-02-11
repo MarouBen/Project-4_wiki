@@ -7,10 +7,12 @@
 {% block body %}
     <h1>All Pages</h1>
 
-    <ul>
+    <div class="list-group col-sm-4">
         {% for entry in entries %}
-            <li><a href="/wiki/{{ entry }}">{{ entry }}</a></li>
+        
+        <a href="/wiki/{{ entry }}" class="list-group-item list-group-item-action"><i class="fa-sharp fa-solid fa-paperclip"></i> {{ entry }}</a>
         {% endfor %}
-    </ul>
+    </div>
+    
 
 {% endblock %}
