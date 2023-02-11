@@ -6,11 +6,11 @@
 
 {% block body %}
     <h1>Is this what you're looking for?</h1>
-
-    <ul>
+    <div class="line"></div>
+    <div class="list-group col-sm-4">
         {% for page in pages %}
-            <li><a href="/wiki/{{ page }}">{{ page }}</a></li>
+            <a class="list-group-item list-group-item-action" href="/wiki/{{ page }}"><i class="fa-sharp fa-solid fa-paperclip"></i> {{ page }}</a>
         {% endfor %}
-    </ul>
-
+    </div>
+    <div class="line"></div>
 {% endblock %}

@@ -6,13 +6,12 @@
 
 {% block body %}
     <h1>All Pages</h1>
-
+    <div class="line"></div>
     <div class="list-group col-sm-4">
         {% for entry in entries %}
-        
         <a href="/wiki/{{ entry }}" class="list-group-item list-group-item-action"><i class="fa-sharp fa-solid fa-paperclip"></i> {{ entry }}</a>
         {% endfor %}
     </div>
-    
+    <div class="line"></div>
 
 {% endblock %}

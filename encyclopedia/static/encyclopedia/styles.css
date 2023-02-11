@@ -1,6 +1,7 @@
 body {
     margin: 0;
     background-color: white;
+    overflow: hidden;
 }
 
 code {
@@ -35,4 +36,10 @@ textarea {
 
 .sidebar h2 {
     margin-top: 5px;
+}
+.line{
+    margin: 10px; 
+    width: 50%;
+    align-items: center;
+    border-bottom: 1px solid #ebebeb;
 }
