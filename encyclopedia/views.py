@@ -1,5 +1,7 @@
-from django.shortcuts import render,redirect,reverse
+from django.shortcuts import render,redirect
+from django.urls import reverse
 import markdown2
+import random
 from . import util
 
 
@@ -70,3 +72,7 @@ def Edit(request, title):
             "title": title,
             "data": data
         }) 
+        
+def rand(request):
+    page = random.choice(util.list_entries())
+    return redirect(reverse("pages",args=[page]))
